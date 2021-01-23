@@ -45,12 +45,12 @@ function passwordLength() {
 
 }
 
+ // Generate character set for password given user input
 function passwordCriteria() {
   userLower = confirm("Do you want lower case letters")
   userUpper = confirm("Do you want capital letters")
   userNumber = confirm("Do you want numbers in the password")
   userSpecial = confirm("Do you want sepcial characters")
-  // Generate character set for password given user input
   generatePassword(userLower, userUpper, userNumber, userSpecial, length)
 }
 
@@ -60,6 +60,8 @@ function generatePassword(lower, upper, number, special, length) {
   var typesCount = lower + upper + number + special
   //Gives the array a true or false value and filters out all false values to identify which criteria the user picked
   var typesArr = [{ lower }, { upper }, { number }, { special }].filter(item => Object.values(item)[0])
+  console.log(typesArr)
+  console.log(typesCount)
 
   //If no options are picked, password cannot be generated so user will have to start over
   if (typesCount === 0) {
